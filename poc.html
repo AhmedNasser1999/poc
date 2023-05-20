@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Send Request and Print Response</title>
+</head>
+<body>
+	<button onclick="sendRequest()">Send Request</button>
+	<script>
+		function sendRequest() {
+			var xhr = new XMLHttpRequest();
+			var url = "https://xp.apple.com/report/2/xp_aos_clientperf"; 
+			// var url = "www.apple.com/airpods/"; 
+			xhr.open("Post", url);
+			xhr.onload = function() {
+				if (xhr.status === 200) {
+					alert(xhr.responseText);
+				} else {
+					alert("Request failed with status code " + xhr.status);
+				}
+			};
+			xhr.send();
+		}
+	</script>
+</body>
+</html>
